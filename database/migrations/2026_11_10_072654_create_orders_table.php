@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+             $table->id();
+        $table->string('customer_name');
+        $table->decimal('total', 8, 2)->default(0);
+        $table->string('status')->default('pending');
+        $table->timestamps();
         });
     }
 
